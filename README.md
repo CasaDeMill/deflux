@@ -8,7 +8,7 @@ deCONZ supports a variaty of Zigbee sensors but have no historical data about th
 Start off by `go get`'ting deflux:
 
 ```
-go get github.com/fasmide/deflux
+go get github.com/CasaDeMill/deflux
 ```
 
 deflux tries to read `$(pwd)/deflux.yml` or `/etc/deflux.yml` in that order, if both fails it will try to discover deCONZ with their webservice and output a configuration sample to stdout. 
@@ -20,7 +20,7 @@ First run generates a sample configuration:
 ```
 $ deflux
 2018/03/29 13:51:02 no configuration could be found: could not read configuration: 
-open /home/fas/go/src/github.com/fasmide/deflux/deflux.yml: no such file or directory
+open /home/fas/go/src/github.com/CasaDeMill/deflux/deflux.yml: no such file or directory
 open /etc/deflux.yml: no such file or directory
 2018/03/29 13:51:03 unable to pair with deconz: unable to pair with deconz: link button not pressed, please fill out APIKey manually
 2018/03/29 13:51:03 Outputting default configuration, save this to /etc/deflux.yml
@@ -39,7 +39,7 @@ Save the sample configuration and edit it to your needs, then run again
 
 ```
 $ deflux 
-2018/03/29 13:52:06 Using configuration /home/fas/go/src/github.com/fasmide/deflux/deflux.yml
+2018/03/29 13:52:06 Using configuration /home/fas/go/src/github.com/CasaDeMill/deflux/deflux.yml
 2018/03/29 13:52:06 Connected to deCONZ at http://192.168.1.90:8080/api
 2018/03/29 13:57:06 recv: {"e":"changed","id":"7","r":"sensors","state":{"buttonevent":1004,"lastupdated":"2018-03-29T11:57:06"},"t":"event"}
 2018/03/29 13:57:06 SensorStore updated, found 17 sensors
