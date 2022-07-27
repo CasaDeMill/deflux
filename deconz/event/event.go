@@ -79,6 +79,11 @@ func (e *Event) ParseState(tl TypeLookuper) error {
 		err = json.Unmarshal(e.RawState, &s)
 		e.State = &s
 		break
+	case "ZHAAirQuality":
+		var s ZHAAirQuality
+		err = json.Unmarshal(e.RawState, &s)
+		e.State = &s
+		break
 	case "ZHAWater":
 		var s ZHAWater
 		err = json.Unmarshal(e.RawState, &s)
@@ -143,10 +148,23 @@ type ZHAHumidity struct {
 	Humidity int
 }
 
+// ZHAAirQuality represents a air qualirt
+type ZHAAirQuality struct {
+	State
+	AirQualityPpb int
+}
+
 // Fields returns timeseries data for influxdb
 func (z *ZHAHumidity) Fields() map[string]interface{} {
 	return map[string]interface{}{
 		"humidity": float64(z.Humidity) / 100,
+	}
+}
+
+// Fields returns timeseries data for influxdb
+func (z *ZHAAirQuality) Fields() map[string]interface{} {
+	return map[string]interface{}{
+		"airQualityPpb": float64(z.AirQualityPpb) / 100,
 	}
 }
 

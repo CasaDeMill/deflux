@@ -42,6 +42,7 @@ func TestMain(m *testing.M) {
 		5: "ZHAFire",
 		6: "ZHAWater",
 		7: "ZHASwitch",
+		8: "ZHAAirQuality"
 	}}}
 	os.Exit(m.Run())
 }
@@ -136,6 +137,25 @@ func TestHumidityEvent(t *testing.T) {
 	}
 
 	if humidity.Humidity != 2985 {
+		t.Fail()
+	}
+}
+
+func TestAirQualityEvent(t *testing.T) {
+
+	result, err := decoder.Parse([]byte(airQualityEventPayload))
+	if err != nil {
+		t.Logf("Could not parse air quality: %s", err)
+		t.FailNow()
+	}
+
+	airQuality, success := result.State.(ZHAAirQuality)
+	if !success {
+		t.Logf("unable assert humidity event")
+		t.FailNow()
+	}
+
+	if airQuality.AirQualityPpb != 2985 {
 		t.Fail()
 	}
 }

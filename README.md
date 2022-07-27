@@ -72,6 +72,7 @@ deflux_Daylight
 deflux_ZHAHumidity
 deflux_ZHAPressure
 deflux_ZHATemperature
+deflux_ZHAAirQuality
 
 ```
 Example from deflux_ZHAHumidity
