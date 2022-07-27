@@ -164,7 +164,7 @@ func (z *ZHAHumidity) Fields() map[string]interface{} {
 // Fields returns timeseries data for influxdb
 func (z *ZHAAirQuality) Fields() map[string]interface{} {
 	return map[string]interface{}{
-		"airQualityPpb": float64(z.AirQualityPpb) / 100,
+		"airqualityppb": float64(z.AirQualityPpb) / 100,
 	}
 }
 
